@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<script type="server/javascript">
+    importNamespace(Coding.Challenge.Firstname.Lastname.Car)
+    const id = request.getParameter (’id’)
+    const car = Car.Lookup(id)
+</script>
+<head>
+    <title>${car.Brand}</title>
+</head>
+<body>
+ <h1 title="${car.Brand}">${car.Brand}</h1>
+ <h2 data-cond="car.IsEcoFriendly" title="${car.Fuel}">Fuel Type :${car.Fuel}</h2>
+ <div data-repeat-model="car.Models"> Model: ${model}</div>
+</body>
+</html>
