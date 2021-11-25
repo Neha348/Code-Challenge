@@ -40,5 +40,11 @@ namespace Coding.Challenge.Firstname.Lastname
         }
 
         
+        public string GetCarBrandbyID( string id)
+        {
+            return _Repository.GetCarBrandbyId(id);
+        }
+
+        
     }
 }

@@ -8,11 +8,11 @@ using HtmlAgilityPack;
 namespace Coding.Challenge.Firstname.Lastname
 {
     public interface Irepository
-    {
-
+    {      
         public  Car FetchHTMLDoc(string ID);
         public  string GetPropValue(object src, string propName);
         public  string Checkcondition(HtmlNode node, object src);
+        public string GetCarBrandbyId( string Id);
 
     }
 }

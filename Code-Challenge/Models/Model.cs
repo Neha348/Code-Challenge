@@ -14,10 +14,18 @@ namespace Coding.Challenge.Firstname.Lastname
         public bool IsEcoFriendly { get; set; }
         public string Fuel { get; set; }
 
-        public List<string> Models { get; set; } 
-       
+        public List<string> Models = new List<string>()
+        {
+
+        };
+
+        //public Car(List<string> array)
+        //{
+        //    Models = array;
+        //}
+
         public static Car Lookup(string id)
-         {
+        {
             Car car = new Car();
             car.id = id;
             return car;
