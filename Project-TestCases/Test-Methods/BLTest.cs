@@ -11,13 +11,13 @@ namespace Project_TestCases.Test_Methods
 
     public class BLTest
     {
-        private Mock<Repository> CarRepository;
+        private Mock<CarRepository> CarRepository;
         private List<Car> cars;
 
         [SetUp]
         public void setup()
         {
-            CarRepository = new Mock<Repository>();
+            CarRepository = new Mock<CarRepository>();
             //setup the mock
             cars = new List<Car>
             {

@@ -8,9 +8,9 @@ namespace Coding.Challenge.Firstname.Lastname
     public class BusinessLogicTest
     {
 
-        private readonly Repository _Repository = null;
+        private readonly CarRepository _Repository = null;
 
-        public BusinessLogicTest(Repository Repository)
+        public BusinessLogicTest(CarRepository Repository)
         {
             _Repository = Repository;
         }
@@ -18,7 +18,7 @@ namespace Coding.Challenge.Firstname.Lastname
         public List<Car> GetEcofriendlyCars()
         {
             var result = new List<Car>();
-            result = Repository.Getcars().Where(x => x.IsEcoFriendly == true).ToList();
+            result = CarRepository.Getcars().Where(x => x.IsEcoFriendly == true).ToList();
             return result; 
         }
     }

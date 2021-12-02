@@ -10,14 +10,14 @@ namespace Project_TestCases.Test_Methods
 {
     class ControllerTest
     {
-        private Mock<Irepository> CarRepository;
+        private Mock<ICarRepository> CarRepository;
         [Test]
         public void GetReturnCar()
         {
-            CarRepository = new Mock<Irepository>();
+            CarRepository = new Mock<ICarRepository>();
             List<Car> cars= new List<Car>();
             CarRepository.Setup(p => p.GetCarBrandbyId("1")).Returns("Mercedes-Benz");
-            CodeChallengeController controller1 = new CodeChallengeController(((Irepository)CarRepository.Object));
+            CodeChallengeController controller1 = new CodeChallengeController(((ICarRepository)CarRepository.Object));
             string result = controller1.GetCarBrandbyID("1");
             Assert.AreEqual("Mercedes-Benz", result);
 

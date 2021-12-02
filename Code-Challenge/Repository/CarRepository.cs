@@ -1,12 +1,13 @@
 ﻿using HtmlAgilityPack;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Coding.Challenge.Firstname.Lastname
 {
-    public class Repository : Irepository
+    public class CarRepository : ICarRepository
     {
         public static List<Car> Getcars()
         {
@@ -43,9 +44,23 @@ namespace Coding.Challenge.Firstname.Lastname
             {
                 if (nNode.NodeType == HtmlNodeType.Element)
                 {
-                    string value = Checkcondition(nNode, cars);
-                    //Console.WriteLine(nNode.Name);
-                    //Console.WriteLine(value);
+                   
+                    if(nNode.OriginalName== "h1")
+                    {
+                        string value = Checkcondition(nNode, cars);
+                        cars.Brand = value;
+                    }
+                    if (nNode.OriginalName == "h2")
+                    {
+                        string value = Checkcondition(nNode, cars);
+                        cars.Fuel = value;
+                    }
+                    else if(nNode.OriginalName=="div")
+                    {                       
+                        List<string> list = GetModels();
+                        cars.Models = list;
+                        //Console.WriteLine(Models.Count());
+                    }
                 }
             }
                         
@@ -72,17 +87,16 @@ namespace Coding.Challenge.Firstname.Lastname
             else if (node.Attributes.Contains("data-repeat-model"))
             {
             //    string propName = node.InnerHtml;
-            //    string prop = propName.Remove(0, propName.IndexOf('.') + 1).TrimEnd('}');                
-                foreach (Car car in Getcars())
-                {
-                   List<string> mylist=  new List<string> { car.id, car.Brand, car.Fuel, car.IsEcoFriendly.ToString() };
-                    car.Models.Add(mylist.ToString()) ;
-                     return Convert.ToString(car.Models.Count());
-                    Console.WriteLine(car.Models);
-                }
-                          
-
-                }
+            //    string prop = propName.Remove(0, propName.IndexOf('.') + 1).TrimEnd('}');
+                 
+                //foreach (Car car in Getcars())
+                //{
+                //    ArrayList arraylist = new ArrayList();
+                //    arraylist.Add(car.id);
+                //    return arraylist.ToString();               
+                //}
+                         
+            }
             
             else if (node.InnerHtml.Contains("$"))
             {
@@ -96,6 +110,17 @@ namespace Coding.Challenge.Firstname.Lastname
         {
             string prop = propName.Remove(0, propName.IndexOf('.') + 1).TrimEnd('}');
             return Convert.ToString(src.GetType().GetProperty(prop).GetValue(src, null));
+        }
+
+        public List<string> GetModels()
+        {
+            List<string> Models = new List<string>();
+            foreach (Car car in Getcars())
+            {
+              
+                Models.Add(car.id);
+            }
+            return Models;
         }
 
         public string GetCarBrandbyId(string Id)

@@ -27,7 +27,7 @@ namespace Code_Challenge
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.Add(new ServiceDescriptor(typeof(Irepository), new Repository()));
+            services.Add(new ServiceDescriptor(typeof(ICarRepository), new CarRepository()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

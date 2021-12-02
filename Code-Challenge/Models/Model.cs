@@ -16,13 +16,8 @@ namespace Coding.Challenge.Firstname.Lastname
 
         public List<string> Models = new List<string>()
         {
-
+             
         };
-
-        //public Car(List<string> array)
-        //{
-        //    Models = array;
-        //}
 
         public static Car Lookup(string id)
         {

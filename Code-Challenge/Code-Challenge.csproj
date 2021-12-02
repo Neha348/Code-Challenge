@@ -6,7 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="View\Result.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.38" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="View\Result.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="View\Result.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="View\Result.cshtml" />
   </ItemGroup>
 
 

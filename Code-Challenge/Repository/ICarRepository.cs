@@ -7,7 +7,7 @@ using HtmlAgilityPack;
 
 namespace Coding.Challenge.Firstname.Lastname
 {
-    public interface Irepository
+    public interface ICarRepository
     {      
         public  Car FetchHTMLDoc(string ID);
         public  string GetPropValue(object src, string propName);
